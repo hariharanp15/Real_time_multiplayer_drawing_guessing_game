@@ -1,0 +1,2 @@
+import { List, ListItem, ListItemText, Chip } from '@mui/material'; import type { Player } from '../types';
+export function PlayerList({players, drawerId, ready=[]}:{players:Player[];drawerId?:number;ready?:number[]}) { return <List dense>{players.map(p=><ListItem key={p.id} secondaryAction={drawerId===p.id?<Chip label="Drawing" color="secondary" size="small"/>:ready.includes(p.id)?<Chip label="Ready" color="success" size="small"/>:null}><ListItemText primary={p.name} secondary={`${p.score} points`}/></ListItem>)}</List> }
